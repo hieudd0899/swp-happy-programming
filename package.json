@@ -8,13 +8,36 @@
     "admin:dev": "bun run --cwd packages/b2c-admin dev",
     "admin:build": "bun run --cwd packages/b2c-admin build",
     "db:generate": "bun run --cwd packages/common generate",
-    "db:push": "bun run --cwd packages/common push"
+    "db:push": "bun run --cwd packages/common push",
+    "lint": "bun run --filter '{b2c-client,b2c-admin,common}' lint --config ../../.eslintrc.json",
+    "prepare": "husky"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
+    "@next/eslint-plugin-next": "^15.0.3",
     "@types/bun": "latest",
+    "@types/eslint": "^9.6.1",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "eslint": "^9.16.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-next": "^15.0.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "prisma": "^6.0.1"
   },
   "peerDependencies": {
@@ -22,5 +45,6 @@
   },
   "dependencies": {
     "@prisma/client": "^6.0.1"
-  }
+  },
+  "module": "index.ts"
 }
