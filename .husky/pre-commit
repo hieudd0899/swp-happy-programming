@@ -1,4 +1,4 @@
-echo '🏗️👷 testing and buidling before commit'
+echo '🏗️👷 testing and building before commit'
 
 bun lint ||
 (
