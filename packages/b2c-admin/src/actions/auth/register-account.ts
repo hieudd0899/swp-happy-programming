@@ -25,6 +25,7 @@ export const handleRegisterAccount = async (
 
         if (accountExist) {
             return {
+                isOk: false,
                 error: 'Account already exist.',
             };
         }
@@ -46,10 +47,13 @@ export const handleRegisterAccount = async (
         });
 
         return {
+            isOk: true,
             data: newAccount,
+            message: 'Create new account successfully.',
         };
     } catch {
         return {
+            isOk: false,
             error: 'Something went wrong.',
         };
     }

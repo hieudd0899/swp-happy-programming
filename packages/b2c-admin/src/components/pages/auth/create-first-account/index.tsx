@@ -3,17 +3,50 @@
 import { Button, Form, Input } from 'antd';
 import React from 'react';
 import type { FormProps } from 'antd';
+import { useMutation } from '@tanstack/react-query';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
+import { handleRegisterAccount } from '~/actions/auth';
 
 type RegisterFieldType = {
-    name?: string;
-    username?: string;
-    password?: string;
-    confirmPassword?: string;
+    name: string;
+    username: string;
+    password: string;
+    confirmPassword: string;
 };
 
 export const CreateFirstAccountPage = () => {
+    const router = useRouter();
+
+    const { mutate, isPending } = useMutation({
+        mutationFn: (
+            payload: Required<
+                Pick<RegisterFieldType, 'name' | 'username' | 'password'>
+            >
+        ) => {
+            return handleRegisterAccount(payload);
+        },
+        onSuccess: (res) => {
+            if (res.isOk) {
+                toast.success(res.message);
+                setTimeout(() => {
+                    router.replace('/login');
+                }, 300);
+            } else {
+                toast.error(res.error);
+            }
+        },
+        onError: () => {
+            toast.error('Something went wrong.');
+        },
+    });
+
     const onFinish: FormProps<RegisterFieldType>['onFinish'] = (values) => {
-        console.log(values);
+        mutate({
+            name: values.name,
+            username: values.username,
+            password: values.password,
+        });
     };
     return (
         <div className="flex h-screen w-full items-center justify-center">
@@ -21,7 +54,11 @@ export const CreateFirstAccountPage = () => {
                 <h1 className="mb-4 text-center text-2xl font-bold">
                     Admin panel
                 </h1>
-                <Form layout="vertical" onFinish={onFinish}>
+                <Form
+                    disabled={isPending}
+                    layout="vertical"
+                    onFinish={onFinish}
+                >
                     <Form.Item<RegisterFieldType>
                         label="Name"
                         name="name"
@@ -89,7 +126,12 @@ export const CreateFirstAccountPage = () => {
                     >
                         <Input.Password />
                     </Form.Item>
-                    <Button className="w-full" htmlType="submit" type="primary">
+                    <Button
+                        className="w-full"
+                        htmlType="submit"
+                        loading={isPending}
+                        type="primary"
+                    >
                         Create new account
                     </Button>
                 </Form>
