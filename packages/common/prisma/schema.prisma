@@ -13,7 +13,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
 model User {
-  id   String @id @default(uuid())
-  name String
+  id             String  @id @default(uuid())
+  username       String  @unique
+  hashedPassword String  @db.Text()
+  isActivated    Boolean @default(true)
+  role           Role
+
+  name    String
+  email   String?
+  dob     DateTime?
+  gender  Gender?
+  phone   String?
+  address String?   @db.Text()
+  Session Session[]
+}
+
+model Session {
+  id            String  @id @default(uuid())
+  userId        String
+  refresh_token String? @db.Text
+  access_token  String? @db.Text
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

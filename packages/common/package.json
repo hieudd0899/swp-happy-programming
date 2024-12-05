@@ -1,14 +1,15 @@
 {
-  "name": "common", 
-  "type": "module",
-  "scripts": {
-    "generate":"npx prisma generate",
-    "push":"npx prisma db push"
-  },
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  }
+    "name": "common",
+    "type": "module",
+    "scripts": {
+        "generate": "npx prisma generate",
+        "push": "npx prisma db push",
+        "lint": "eslint ."
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    }
 }
