@@ -16,6 +16,8 @@ datasource db {
 enum Role {
   USER
   ADMIN
+  MENTOR
+  MENTEE
 }
 
 enum Gender {
@@ -30,7 +32,7 @@ model User {
   isActivated    Boolean @default(true)
   role           Role
 
-  name    String
+  name    String?
   email   String?
   dob     DateTime?
   gender  Gender?

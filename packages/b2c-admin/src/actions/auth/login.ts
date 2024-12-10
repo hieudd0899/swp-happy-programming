@@ -3,7 +3,7 @@
 import { db } from 'common/libs/db';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { ActionResponseType } from '~/types/action-type';
+import { ActionResponseType } from 'common/types/action-type';
 import { setSession } from '~/utils/session';
 
 type LoginAccount = {

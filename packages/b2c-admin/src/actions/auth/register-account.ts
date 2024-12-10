@@ -3,7 +3,7 @@
 import { Role, User } from '@prisma/client';
 import { db } from 'common/libs/db';
 import bcrypt from 'bcrypt';
-import { ActionResponseType } from '~/types/action-type';
+import { ActionResponseType } from 'common/types/action-type';
 
 type Account = {
     username: string;

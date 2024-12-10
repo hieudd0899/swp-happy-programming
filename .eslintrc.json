@@ -41,7 +41,8 @@
         "node_modules",
         "postcss.config.js",
         "tailwind.config.ts",
-        "next.config.js"
+        "next.config.js",
+        "ui"
     ],
     "rules": {
         "no-param-reassign": [

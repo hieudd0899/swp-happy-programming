@@ -1,5 +1,5 @@
 import { Toaster } from 'sonner';
-import { QueryClientProvider } from '../providers/query-client-provider';
+import { QueryClientProvider } from 'common/providers/query-client-provider';
 import './globals.css';
 
 export default function RootLayout({
