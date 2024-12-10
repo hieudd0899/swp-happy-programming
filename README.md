@@ -17,17 +17,17 @@ yarn client:dev # only client site
 yarn admin:dev # only admin site
 ```
 
-The b2c-client site should be running on http://localhost:3000.
-The b2c-admin site should be running on http://localhost:3001
+- The b2c-client site should be running on http://localhost:3000.
+- The b2c-admin site should be running on http://localhost:3001
 
 ## Development rules
 
 # Technology stack:
 
-node version v16.17.0
-yarn: 3.2.4
-next: 12.3.1
-TypeScript
+- node version v18.17.0
+- bun: 1.1.38
+- next: 14.2.20
+- TypeScript
 
 # Linter, formatter
 
@@ -46,25 +46,25 @@ TypeScript
 
 # File and folder structure
 
-📦repository
-┣ 📂.vscode <---- IDE settings
-┣ 📂packages  
-┃ ┣ 📂b2c-admin
-┃ ┃ ┣ 📂public
-┃ ┃ ┣ 📂src
-┃ ┃ ┃ ┣ 📂actions <--- code for calling server actions
-┃ ┃ ┃ ┣ 📂app  
-┃ ┃ ┃ ┃ ┣ 📂<page1> <--- page should only be composite of others components, don't declare the whole layout in a page file
-┃ ┃ ┃ ┃ ┗ 📂<page2>
-┃ ┃ ┃ ┣ 📂components  
-┃ ┃ ┃ ┃ ┣ 📂<page1> <--- components (and their associated .module.css file), used only in page1 on the mobile site
-┃ ┃ ┃ ┃ ┣ 📂<page2>
-┃ ┃ ┃ ┃ ┗ 📂common <--- components (and their associated .module.css file), used in multiple pages on the mobile site
-┃ ┃ ┃ ┣ 📂hooks
-┃ ┃ ┃ ┣ 📂hooks <--- React hooks
-┃ ┃ ┃ ┣ 📂types <--- style files (css, scss)
-┃ ┃ ┃ ┗ 📂utils <--- files containing typescript type definition
-┃ ┃ ┗ 📜... Development, mobile only configuration files
-┃ ┣ 📂b2c-client <--- same structure as b2c-admin folder
-┃ ┗ 📂common <--- same rules and structure as b2c-admin/src folder, but should only contain reusable elements for both PC and Mobile sites
-┗ 📜 ... Development configuration files (ESLint, Prettier, ...)
+- 📦repository
+- ┣ 📂.vscode <---- IDE settings
+- ┣ 📂packages
+- ┃ ┣ 📂b2c-admin
+- ┃ ┃ ┣ 📂public
+- ┃ ┃ ┣ 📂src
+- ┃ ┃ ┃ ┣ 📂actions <--- code for calling server actions
+- ┃ ┃ ┃ ┣ 📂app
+- ┃ ┃ ┃ ┃ ┣ 📂<page1> <--- page should only be composite of others components, don't declare the whole layout in a page file
+- ┃ ┃ ┃ ┃ ┗ 📂<page2>
+- ┃ ┃ ┃ ┣ 📂components
+- ┃ ┃ ┃ ┃ ┣ 📂<page1> <--- components (and their associated .module.css file), used only in page1 on the admin site
+- ┃ ┃ ┃ ┃ ┣ 📂<page2>
+- ┃ ┃ ┃ ┃ ┗ 📂common <--- components (and their associated .module.css file), used in multiple pages on the admin site
+- ┃ ┃ ┃ ┣ 📂hooks
+- ┃ ┃ ┃ ┣ 📂hooks <--- React hooks
+- ┃ ┃ ┃ ┣ 📂types <--- type files
+- ┃ ┃ ┃ ┗ 📂utils <--- files containing typescript type definition
+- ┃ ┃ ┗ 📜... Development, admin only configuration files
+- ┃ ┣ 📂b2c-client <--- same structure as b2c-admin folder
+- ┃ ┗ 📂common <--- same rules and structure as b2c-admin/src folder, but should only contain reusable elements for all sites
+- ┗ 📜 ... Development configuration files (ESLint, Prettier, ...)
