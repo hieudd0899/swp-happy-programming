@@ -11,10 +11,10 @@ bun install
 Run the development server:
 
 ```bash
-yarn dev # run both client and admin site
+bun  dev # run both client and admin site
 
-yarn client:dev # only client site
-yarn admin:dev # only admin site
+bun client:dev # only client site
+bun admin:dev # only admin site
 ```
 
 - The b2c-client site should be running on http://localhost:3000.
