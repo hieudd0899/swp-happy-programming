@@ -156,26 +156,19 @@ const RegisterForm = () => {
                                     defaultValue={field.value}
                                     onValueChange={field.onChange}
                                 >
-                                    <FormItem className="flex items-center space-x-1 space-y-0">
-                                        <FormControl>
-                                            <RadioGroupItem
-                                                value={Role.MENTEE}
-                                            />
-                                        </FormControl>
-                                        <FormLabel className="font-normal">
-                                            Mentee
-                                        </FormLabel>
-                                    </FormItem>
-                                    <FormItem className="flex items-center space-x-1 space-y-0">
-                                        <FormControl>
-                                            <RadioGroupItem
-                                                value={Role.MENTOR}
-                                            />
-                                        </FormControl>
-                                        <FormLabel className="font-normal">
-                                            Mentor
-                                        </FormLabel>
-                                    </FormItem>
+                                    {[Role.MENTEE, Role.MENTOR].map((role) => (
+                                        <FormItem className="flex items-center space-x-1 space-y-0">
+                                            <FormControl>
+                                                <RadioGroupItem value={role} />
+                                            </FormControl>
+                                            <FormLabel className="font-normal">
+                                                {role.charAt(0).toUpperCase() +
+                                                    role
+                                                        .toLocaleLowerCase()
+                                                        .slice(1)}
+                                            </FormLabel>
+                                        </FormItem>
+                                    ))}
                                 </RadioGroup>
                             </FormControl>
                             <FormMessage />
